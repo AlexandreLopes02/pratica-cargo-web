@@ -1,27 +1,156 @@
-# PraticaCargo
+# Pratica Cargo — Sistema de Gestão
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+**Angular 14 • .NET Web API • SQL Server • JWT**
 
-## Development server
+Sistema completo de treinamento para prática de **Angular 14** consumindo uma **API C# (.NET Web API)** com **SQL Server** e autenticação **JWT**, focado em boas práticas, arquitetura modular e experiência do usuário.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🔐 Autenticação
 
-## Build
+* Cadastro de usuários (nome, email, senha)
+* Login com **JWT**
+* **Auth Guard** para proteção de rotas
+* **HTTP Interceptor** para envio automático do token
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 🗂️ Cadastros (CRUD)
 
-## Running unit tests
+* **Motoristas** (nome, CPF)
+* **Empresas** (nome, CNPJ)
+* **Serviços / Ordens de Serviço**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  * Relacionamento entre empresa e motorista por ID
+  * Validação de existência antes do cadastro
+  * Expansão de dados relacionados nas consultas
 
-## Running end-to-end tests
+### 🔎 Consultas Avançadas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* Por **CNPJ**: empresa + ordens de serviço + motorista
+* Por **CPF**: motorista + ordens de serviço + empresa
 
-## Further help
+### 📊 Dashboard
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Contadores de motoristas
+* Contadores de empresas
+* Contadores de serviços
+
+### 🎨 UX & Qualidade
+
+* Máscaras de **CPF/CNPJ**
+* Confirmação de ações com **MatDialog**
+* **Toasts** de feedback (sucesso/erro)
+* Indicadores de **loading**
+
+---
+
+## 📦 Tecnologias Utilizadas
+
+### Front-end
+
+* Angular 14
+* Angular Material
+* Ngx-mask
+* HTML5 / SCSS
+* RxJS
+
+### Back-end
+
+* C# .NET Web API
+* Entity Framework Core
+* SQL Server
+* JWT (JSON Web Tokens)
+
+---
+
+## 🔧 Como Executar o Projeto
+
+### 📌 Back-end (API)
+
+1. Instale o **.NET SDK**
+2. Configure o `appsettings.json` com sua conexão do **SQL Server**
+3. Execute as migrations:
+
+   ```bash
+   dotnet ef database update
+   ```
+4. Inicie a API:
+
+   ```bash
+   dotnet run
+   ```
+5. A API estará disponível em:
+
+   ```
+   https://localhost:<porta>/api
+   ```
+
+### 📌 Front-end (Angular)
+
+1. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+2. Inicie a aplicação:
+
+   ```bash
+   npm start
+   ```
+3. Acesse:
+
+   ```
+   http://localhost:4200
+   ```
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+pratica-cargo/
+├─ angular/                 # Front-end Angular 14
+│  └─ src/app/
+│     ├─ core/              # Serviços centrais, guards, interceptors
+│     ├─ shared/            # Componentes e utilitários reutilizáveis
+│     └─ features/          # Módulos por domínio
+│        ├─ auth/
+│        ├─ layout/
+│        ├─ cadastros/
+│        ├─ consultas/
+│        └─ dashboard/
+├─ api/                     # Back-end .NET Web API
+│  ├─ Controllers/
+│  ├─ Data/
+│  ├─ Models/
+│  └─ appsettings.json
+├─ db/                      # Migrations e scripts de banco
+└─ README.md
+```
+
+---
+
+## 💡 Boas Práticas Aplicadas
+
+* Arquitetura modular por **feature**
+* Separação de responsabilidades (components x services)
+* **Reactive Forms** com validações
+* **JWT Interceptor** e **Auth Guard**
+* Tratamento centralizado de erros (front e back)
+* Máscaras de entrada para dados sensíveis
+* Feedback visual e confirmação de ações
+
+---
+
+## 📌 Próximos Passos / Melhorias
+
+* Hash seguro de senha no back-end
+* Perfis de usuário e controle de permissões
+* Logs e auditoria
+* Relatórios exportáveis (PDF / Excel)
+* Testes unitários e de integração
+
+---
+
+📘 **Projeto desenvolvido com foco educacional e preparo para projetos reais em Angular e .NET.**

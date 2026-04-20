@@ -1,0 +1,134 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #f3f6fb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 980px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 26px 10px 26px;
+}
+
+.brand-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #2f8cff, #1260d6);
+}
+
+.brand-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.brand-name { color: #111; }
+.brand-accent { color: #1f7eea; }
+
+.top-line {
+  height: 6px;
+  background: #1f7eea;
+  margin: 0 26px;
+  border-radius: 8px;
+}
+
+.auth-content {
+  padding: 24px 26px 18px 26px;
+}
+
+.auth-title {
+  margin: 18px 0 22px 0;
+  font-size: 28px;
+  font-weight: 500;
+  color: #1b1b1b;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2a2a2a;
+}
+
+.input {
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d7dce3;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border .15s ease, box-shadow .15s ease;
+}
+
+.input:focus {
+  border-color: #1f7eea;
+  box-shadow: 0 0 0 3px rgba(31,126,234,0.15);
+}
+
+.error {
+  display: block;
+  margin-top: 2px;
+  color: #d93025;
+  font-size: 13px;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.link {
+  color: #1f7eea;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+button.btn.btn-primary {
+  background-color: #1f7eea !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  height: 44px;
+  padding: 0 22px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button.btn.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+button.btn.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

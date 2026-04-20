@@ -1,0 +1,81 @@
+<div class="page">
+  <div class="page-head">
+    <div class="titles">
+      <div class="crumb">Cadastros / Motoristas</div>
+      <h1>Motoristas</h1>
+    </div>
+
+    <button mat-raised-button color="primary" class="btn-primary" (click)="novo()">
+      <mat-icon>add</mat-icon>
+      Novo Motorista
+    </button>
+  </div>
+
+  <mat-card class="card">
+    <mat-card-content>
+      <!-- Loading -->
+      <div class="state" *ngIf="loading">
+        <mat-spinner diameter="28"></mat-spinner>
+        <span>Carregando motoristas...</span>
+      </div>
+
+      <!-- Tabela -->
+      <div *ngIf="!loading && motoristas.length > 0" class="table-wrap">
+        <table mat-table [dataSource]="motoristas" class="mat-elevation-z0 table">
+          <!-- Nome -->
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let m">{{ m.nome }}</td>
+          </ng-container>
+
+          <!-- CPF -->
+          <ng-container matColumnDef="cpf">
+            <th mat-header-cell *matHeaderCellDef>CPF</th>
+            <td mat-cell *matCellDef="let m">{{ m.cpf }}</td>
+          </ng-container>
+
+          <!-- Ações -->
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef class="col-actions">Ações</th>
+            <td mat-cell *matCellDef="let m" class="col-actions">
+              <button
+                mat-icon-button
+                class="icon-btn"
+                matTooltip="Editar"
+                (click)="editar(m.id!)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button
+                mat-icon-button
+                class="icon-btn danger"
+                matTooltip="Excluir"
+                (click)="excluir(m.id!)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="['nome','cpf','acoes']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['nome','cpf','acoes'];"></tr>
+        </table>
+      </div>
+
+      <!-- Estado vazio -->
+      <div *ngIf="!loading && motoristas.length === 0" class="empty">
+        <mat-icon>person_off</mat-icon>
+        <div class="empty-text">
+          <strong>Nenhum motorista cadastrado</strong>
+          <span>Comece criando um novo motorista para aparecer na lista.</span>
+        </div>
+
+        <button mat-stroked-button color="primary" (click)="novo()">
+          <mat-icon>add</mat-icon>
+          Cadastrar Motorista
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

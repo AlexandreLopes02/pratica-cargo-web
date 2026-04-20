@@ -1,0 +1,253 @@
+:host { display: block; }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.header .crumb {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.card {
+  border-radius: 14px;
+}
+
+:host ::ng-deep .mat-mdc-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* busca */
+.form { display: flex; flex-direction: column; gap: 12px; }
+
+.search-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.search-field { width: 100%; }
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.85;
+  font-weight: 700;
+}
+
+/* resultado */
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+
+  mat-icon { opacity: 0.85; }
+
+  .title {
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+}
+
+/* cards de info */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.info-box {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.015);
+
+  .label {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-bottom: 4px;
+  }
+
+  .value {
+    font-weight: 900;
+    font-size: 14px;
+  }
+}
+
+/* ========================= */
+/* OS - seção mais visual */
+/* ========================= */
+
+.os-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.count {
+  font-weight: 800;
+  opacity: 0.8;
+}
+
+/* cards de resumo */
+.os-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 8px 0 14px;
+}
+
+.stat {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.015);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.stat .k {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+.stat .v {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.stat .unit {
+  font-size: 12px;
+  opacity: 0.75;
+  font-weight: 800;
+  margin-left: 4px;
+}
+
+/* tabela ocupa tudo e fica mais espaçada */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+:host ::ng-deep table.os-table.mat-mdc-table {
+  width: 100% !important;
+  background: #fff;
+  table-layout: auto;
+}
+
+:host ::ng-deep table.os-table .mat-mdc-header-cell,
+:host ::ng-deep table.os-table .mat-mdc-cell {
+  padding: 16px 18px !important;
+  white-space: nowrap;
+}
+
+:host ::ng-deep table.os-table .mat-mdc-row {
+  height: 60px;
+}
+
+:host ::ng-deep table.os-table .mat-mdc-header-cell {
+  font-weight: 900;
+  opacity: 0.75;
+}
+
+/* colunas com largura mínima */
+:host ::ng-deep table.os-table .mat-column-empresa,
+:host ::ng-deep table.os-table .mat-column-motorista {
+  min-width: 280px;
+}
+
+:host ::ng-deep table.os-table .mat-column-tipo {
+  min-width: 140px;
+}
+
+:host ::ng-deep table.os-table .mat-column-data {
+  min-width: 160px;
+}
+
+:host ::ng-deep table.os-table .mat-column-peso {
+  min-width: 140px;
+}
+
+.cell-main { font-weight: 900; }
+.muted { opacity: 0.85; font-weight: 800; }
+.right { text-align: right; }
+.weight { font-weight: 900; }
+
+/* pill */
+.tipo-pill {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  background: rgba(25, 118, 210, 0.12);
+  border: 1px solid rgba(25, 118, 210, 0.18);
+}
+
+/* empty */
+.empty {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+}
+
+.empty-ic { opacity: 0.7; }
+
+.empty-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* responsivo */
+@media (max-width: 900px) {
+  .search-row {
+    grid-template-columns: 1fr;
+  }
+
+  .search-row button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .os-stats {
+    grid-template-columns: 1fr;
+  }
+
+  :host ::ng-deep table.os-table.mat-mdc-table {
+    min-width: 760px;
+  }
+}

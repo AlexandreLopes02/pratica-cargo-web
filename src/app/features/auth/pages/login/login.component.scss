@@ -1,0 +1,156 @@
+.login-page {
+  min-height: 100vh;
+  background: #f3f5f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Marca */
+.brand {
+  width: 100%;
+  max-width: 850px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4fa3ff, #0b64c9);
+}
+
+.brand-text {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.brand-primary {
+  color: #1d2b3a;
+}
+
+.brand-secondary {
+  color: #1583e6;
+}
+
+/* Card */
+.login-card {
+  width: 100%;
+  max-width: 850px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.top-line {
+  height: 6px;
+  background: #1583e6;
+}
+
+.form {
+  padding: 32px 40px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+
+  label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2b3a4a;
+  }
+
+  input {
+    width: 100%;
+    height: 52px;
+    padding: 0 14px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #d7dde4;
+    outline: none;
+
+    &:focus {
+      border-color: #1583e6;
+      box-shadow: 0 0 0 3px rgba(21,131,230,0.15);
+    }
+  }
+}
+
+.error {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #c62828;
+}
+
+.server-error {
+  color: #c62828;
+  margin-top: 8px;
+}
+
+.actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link {
+  color: #1583e6;
+  text-decoration: none;
+  font-size: 16px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #fff;
+  border: 1px solid #cfd8e3;
+  color: #1d2b3a;
+
+  &:hover {
+    background: #f6f8fa;
+  }
+}
+
+.btn-secondary {
+  background: #1583e6;
+  color: #fff;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+}
+
+.footer {
+  margin-top: 18px;
+  color: #8a96a3;
+  font-size: 16px;
+}

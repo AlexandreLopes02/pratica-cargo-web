@@ -1,0 +1,155 @@
+<div class="page">
+  <div class="header">
+    <div>
+      <div class="crumb">Consultas / Empresa</div>
+      <h1>Consulta por Empresa (CNPJ)</h1>
+    </div>
+  </div>
+
+  <!-- Busca -->
+  <mat-card class="card">
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="buscar()" class="form">
+        <div class="search-row">
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>CNPJ</mat-label>
+            <input matInput formControlName="cnpj" placeholder="00.000.000/0000-00" />
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="loading || form.invalid">
+            <mat-icon>search</mat-icon>
+            Buscar
+          </button>
+        </div>
+
+        <div class="loading" *ngIf="loading">
+          <mat-spinner diameter="18"></mat-spinner>
+          <span>Carregando...</span>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Resultado -->
+  <div class="result" *ngIf="empresa">
+    <!-- Card Dados -->
+    <mat-card class="card">
+      <mat-card-content>
+        <div class="card-title">
+          <mat-icon>domain</mat-icon>
+          <div>
+            <div class="title">Empresa</div>
+            <div class="subtitle">Informações encontradas</div>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="label">Nome</div>
+            <div class="value">{{ empresa.nome }}</div>
+          </div>
+
+          <div class="info-box">
+            <div class="label">CNPJ</div>
+            <div class="value">{{ empresa.cnpj }}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Card OS (MELHORADO) -->
+    <mat-card class="card">
+      <mat-card-content>
+        <div class="os-head">
+          <div class="card-title">
+            <mat-icon>assignment</mat-icon>
+            <div>
+              <div class="title">Ordens de Serviço</div>
+              <div class="subtitle">
+                Lista vinculada à empresa
+                <span class="count" *ngIf="servicos.length">• {{ servicos.length }} registro(s)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumo visual -->
+        <div class="os-stats" *ngIf="servicos.length > 0">
+          <div class="stat">
+            <div class="k">Total de OS</div>
+            <div class="v">{{ servicos.length }}</div>
+          </div>
+
+          <div class="stat">
+            <div class="k">Peso total</div>
+            <div class="v">{{ getPesoTotal() }} <span class="unit">kg</span></div>
+          </div>
+
+          <div class="stat">
+            <div class="k">Próxima data</div>
+            <div class="v">{{ getProximaData() }}</div>
+          </div>
+        </div>
+
+        <!-- Tabela Full Width -->
+        <div class="table-wrap" *ngIf="servicos.length > 0; else emptyOsEmpresa">
+          <table mat-table [dataSource]="servicos" class="mat-elevation-z0 os-table">
+            <ng-container matColumnDef="motorista">
+              <th mat-header-cell *matHeaderCellDef>Motorista</th>
+              <td mat-cell *matCellDef="let s">
+                <div class="cell-main">{{ s.motorista?.nome || '-' }}</div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tipo">
+              <th mat-header-cell *matHeaderCellDef>Tipo</th>
+              <td mat-cell *matCellDef="let s">
+                <span class="tipo-pill">{{ s.tipo }}</span>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef>Data</th>
+              <td mat-cell *matCellDef="let s">
+                <span class="muted">{{ formatDateBR(s.data) }}</span>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="peso">
+              <th mat-header-cell *matHeaderCellDef class="right">Peso</th>
+              <td mat-cell *matCellDef="let s" class="right">
+                <span class="weight">{{ s.peso ? (s.peso + ' kg') : '-' }}</span>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['motorista','tipo','data','peso']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['motorista','tipo','data','peso']"></tr>
+          </table>
+        </div>
+
+        <ng-template #emptyOsEmpresa>
+          <div class="empty">
+            <mat-icon class="empty-ic">info</mat-icon>
+            <div class="empty-text">
+              <strong>Nenhuma OS vinculada</strong>
+              <span>Essa empresa ainda não possui ordens cadastradas.</span>
+            </div>
+          </div>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Sem resultado -->
+  <mat-card class="card" *ngIf="buscou && !loading && !empresa">
+    <mat-card-content>
+      <div class="empty">
+        <mat-icon class="empty-ic">search_off</mat-icon>
+        <div class="empty-text">
+          <strong>Nenhuma empresa encontrada</strong>
+          <span>Verifique o CNPJ digitado e tente novamente.</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

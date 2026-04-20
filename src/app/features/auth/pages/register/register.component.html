@@ -1,0 +1,59 @@
+<div class="auth-page">
+  <div class="auth-card">
+
+    <div class="brand">
+      <div class="brand-badge"></div>
+      <div class="brand-title">
+        <span class="brand-name">pratica</span><span class="brand-accent">Cargo</span>
+      </div>
+    </div>
+
+    <div class="top-line"></div>
+
+    <div class="auth-content">
+      <h2 class="auth-title">Cadastro</h2>
+
+      <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="field">
+          <label class="label">Nome</label>
+          <input class="input" type="text" formControlName="name" placeholder="Digite seu nome" />
+
+          <small class="error" *ngIf="hasError('name','required')">Nome obrigatório</small>
+          <small class="error" *ngIf="hasError('name','minlength')">Min 3 caracteres</small>
+        </div>
+
+        <div class="field">
+          <label class="label">Email</label>
+          <input class="input" type="email" formControlName="email" placeholder="Digite seu email" />
+
+          <small class="error" *ngIf="hasError('email','required')">Email obrigatório</small>
+          <small class="error" *ngIf="hasError('email','email')">Email inválido</small>
+        </div>
+
+        <div class="field">
+          <label class="label">Senha</label>
+          <input class="input" type="password" formControlName="password" placeholder="Digite sua senha" />
+
+          <small class="error" *ngIf="hasError('password','required')">Senha obrigatória</small>
+          <small class="error" *ngIf="hasError('password','minlength')">Min 6 caracteres</small>
+        </div>
+
+        <div class="actions">
+          <a class="link" routerLink="/login">Voltar para login</a>
+
+          <!-- agora pode travar sem medo (depois de corrigir o FormGroup) -->
+          <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+            Cadastrar
+          </button>
+        </div>
+
+      </form>
+
+      <div class="footer">
+        © 2026 Desenvolvedor Alexandre base: AtlaFacil Inteligência
+      </div>
+    </div>
+
+  </div>
+</div>

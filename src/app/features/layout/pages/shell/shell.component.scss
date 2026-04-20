@@ -1,0 +1,233 @@
+.shell {
+  height: 100vh;
+  background: #f3f5f9;
+}
+
+/* Sidebar (escura, limpa, com itens “pill”) */
+.sidebar {
+  width: 260px;
+  background: #0f172a;
+  color: #e5e7eb;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+
+  .mat-drawer-inner-container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
+
+.brand {
+  padding: 18px 18px 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  .title {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+  }
+
+  .subtitle {
+    margin-top: 4px;
+    font-size: 12px;
+    color: rgba(229, 231, 235, 0.75);
+  }
+}
+
+/* Lista do menu */
+.menu {
+  padding: 12px 10px;
+
+  .mat-mdc-list {
+    padding: 0;
+  }
+}
+
+/* Título de seção */
+.section {
+  margin: 14px 10px 8px 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(229, 231, 235, 0.55);
+}
+
+/* Itens do menu (top-level) */
+.menu-item {
+  margin: 6px 8px;
+  border-radius: 10px;
+  height: 44px;
+
+  /* alinhamento interno do mat-list-item */
+  .mdc-list-item__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .menu-icon {
+    font-size: 20px;
+    width: 22px;
+    height: 22px;
+    color: rgba(229, 231, 235, 0.75);
+  }
+
+  .menu-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(229, 231, 235, 0.9);
+  }
+
+  /* hover */
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+
+    .menu-icon,
+    .menu-text {
+      color: #ffffff;
+    }
+  }
+
+  /* remove fundo/efeito padrão */
+  &.mdc-list-item--activated,
+  &.mat-mdc-list-item {
+    background: transparent;
+  }
+}
+
+/* Item ativo no menu principal */
+.menu-item.active {
+  background: rgba(59, 130, 246, 0.18);
+  outline: 1px solid rgba(59, 130, 246, 0.22);
+
+  .menu-icon {
+    color: #93c5fd;
+  }
+
+  .menu-text {
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+/* ---------- SUBMENU (dropdown) ---------- */
+.submenu {
+  margin: 4px 8px 10px 8px;
+  padding-left: 12px; /* indent visual */
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Os links dentro do submenu NÃO têm .menu-item, então estilizamos via seletor */
+.submenu a[mat-list-item] {
+  margin: 6px 0;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 14px;
+
+  .mdc-list-item__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .submenu-icon {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    opacity: 0.85;
+    color: rgba(229, 231, 235, 0.72);
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(229, 231, 235, 0.88);
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+
+    .submenu-icon,
+    span {
+      color: #ffffff;
+      opacity: 1;
+    }
+  }
+}
+
+/* Ativo do submenu (quando rota bate) */
+.submenu a.active {
+  background: rgba(59, 130, 246, 0.16);
+  outline: 1px solid rgba(59, 130, 246, 0.20);
+
+  .submenu-icon {
+    color: #93c5fd;
+    opacity: 1;
+  }
+
+  span {
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+/* ---------- Área principal ---------- */
+.main {
+  background: #f3f5f9;
+}
+
+/* Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 56px;
+  background: #ffffff;
+  color: #111827;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+
+  .topbar-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .btn-logout {
+    border-radius: 10px;
+    font-weight: 600;
+
+    mat-icon {
+      margin-right: 6px;
+    }
+
+    &:hover {
+      background: rgba(17, 24, 39, 0.06);
+    }
+  }
+}
+
+/* Conteúdo */
+.content {
+  padding: 18px 22px;
+  min-height: calc(100vh - 56px);
+}
+
+/* Ajustes finos do Angular Material */
+:host ::ng-deep .mat-mdc-list-item .mdc-list-item__primary-text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* remove foco pesado padrão */
+:host ::ng-deep .mat-mdc-list-item:focus::before {
+  opacity: 0 !important;
+}

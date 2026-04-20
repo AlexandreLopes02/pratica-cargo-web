@@ -1,0 +1,145 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .crumb {
+    font-size: 12px;
+    color: rgba(17, 24, 39, 0.55);
+  }
+}
+
+.btn-primary {
+  border-radius: 12px;
+  font-weight: 800;
+
+  mat-icon {
+    margin-right: 6px;
+  }
+}
+
+.card {
+  border-radius: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 6px;
+  color: rgba(17, 24, 39, 0.7);
+  font-weight: 700;
+}
+
+.table-wrap {
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.table {
+  width: 100%;
+  background: #fff;
+
+  th {
+    font-weight: 800;
+    color: rgba(17, 24, 39, 0.75);
+  }
+
+  td {
+    color: #111827;
+  }
+
+  tr:hover td {
+    background: rgba(17, 24, 39, 0.03);
+  }
+}
+
+.col-actions {
+  width: 140px;
+  text-align: right;
+}
+
+.icon-btn {
+  border-radius: 10px;
+
+  mat-icon {
+    color: rgba(17, 24, 39, 0.65);
+  }
+
+  &:hover {
+    background: rgba(17, 24, 39, 0.06);
+  }
+
+  &.danger mat-icon {
+    color: rgba(220, 38, 38, 0.85);
+  }
+
+  &.danger:hover {
+    background: rgba(220, 38, 38, 0.08);
+  }
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 10px;
+  border-radius: 12px;
+  border: 1px dashed rgba(17, 24, 39, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+
+  mat-icon {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+    color: rgba(17, 24, 39, 0.5);
+  }
+
+  .empty-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+
+    strong {
+      color: #111827;
+    }
+
+    span {
+      color: rgba(17, 24, 39, 0.65);
+      font-size: 13px;
+    }
+  }
+
+  button {
+    border-radius: 12px;
+    font-weight: 800;
+
+    mat-icon {
+      margin-right: 6px;
+    }
+  }
+}

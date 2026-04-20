@@ -1,0 +1,70 @@
+<div class="login-page">
+  <!-- Logo / Marca -->
+  <div class="brand">
+    <div class="brand-logo"></div>
+    <div class="brand-text">
+      <span class="brand-primary">pratica</span>
+      <span class="brand-secondary">Cargo</span>
+    </div>
+  </div>
+
+  <!-- Card -->
+  <div class="login-card">
+    <div class="top-line"></div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+
+      <div class="form-group">
+        <label for="name">Operador</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Digite seu usuário"
+        />
+        <small class="error" *ngIf="hasError('name','required')">
+          Usuário obrigatório
+        </small>
+        <small class="error" *ngIf="hasError('name','minlength')">
+          Usuário deve ter no mínimo 3 caracteres
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Digite sua senha"
+        />
+        <small class="error" *ngIf="hasError('password','required')">
+          Senha obrigatória
+        </small>
+        <small class="error" *ngIf="hasError('password','minlength')">
+          Senha deve ter no mínimo 6 caracteres
+        </small>
+      </div>
+
+      <p class="server-error" *ngIf="error">{{ error }}</p>
+
+      <div class="actions">
+        <a class="link" routerLink="/forgot-password">
+          Esqueci minha senha
+        </a>
+
+        <div class="buttons">
+          <a class="btn btn-secondary" routerLink="/register">
+            Criar conta
+          </a>
+          <button type="submit" class="btn btn-primary">
+            Login
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <footer class="footer">© 2026 Desenvolvedor Alexandre base: cargoPro Inteligência</footer>
+</div>

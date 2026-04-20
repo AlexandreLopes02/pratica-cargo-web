@@ -1,0 +1,97 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@teste.com",
+      "password": "123456"
+    },
+    {
+      "name": "Alexandre",
+      "email": "alexandre@gmail.com",
+      "password": "654321",
+      "id": 2
+    }
+  ],
+  "motoristas": [
+    {
+      "nome": "Heitor",
+      "cpf": "123.456.789-13",
+      "id": 1
+    },
+    {
+      "nome": "Sheila",
+      "cpf": "129.876.543-21",
+      "id": 2
+    },
+    {
+      "nome": "Alexandre",
+      "cpf": "123.987.654-32",
+      "id": 3
+    }
+  ],
+  "empresas": [
+    {
+      "nome": "Transporte Lopez",
+      "cnpj": "12.345.678/0001-90",
+      "endereco": "Rua Lopes 140",
+      "id": 1
+    },
+    {
+      "nome": "Exportadora Lopez",
+      "cnpj": "87.654.321/0001-90",
+      "endereco": "Rua exporta 105",
+      "id": 2
+    }
+  ],
+  "servicos": [
+    {
+      "empresaId": 1,
+      "motoristaId": 2,
+      "cargaId": 1,
+      "peso": 50000,
+      "quemRetira": "",
+      "data": "2026-01-21",
+      "tipo": "carga",
+      "id": 1
+    },
+    {
+      "empresaId": 1,
+      "motoristaId": 1,
+      "cargaId": 1,
+      "peso": 50000,
+      "quemRetira": "Heitor",
+      "data": "2026-01-20",
+      "tipo": "carga",
+      "id": 2
+    },
+    {
+      "empresaId": 2,
+      "motoristaId": 3,
+      "cargaId": 3,
+      "peso": 100000,
+      "quemRetira": "Alexandre",
+      "data": "2026-01-21",
+      "tipo": "carga",
+      "id": 3
+    }
+  ],
+  "cargas": [
+    {
+      "id": 1,
+      "nome": "Arroz"
+    },
+    {
+      "id": 2,
+      "nome": "Soja"
+    },
+    {
+      "id": 3,
+      "nome": "Macarrão"
+    },
+    {
+      "id": 4,
+      "nome": "Ferro"
+    }
+  ]
+}

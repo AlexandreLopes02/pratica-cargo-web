@@ -1,0 +1,57 @@
+<div class="page">
+  <div class="header">
+    <div>
+      <div class="crumb">Configurações</div>
+      <h1>Configurações</h1>
+      <p class="sub">Dados da conta logada</p>
+    </div>
+  </div>
+
+  <mat-card class="card">
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="salvar()" class="form">
+        <div class="grid">
+          <mat-form-field appearance="outline" class="full">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name" />
+            <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.hasError('required')">
+              Nome obrigatório
+            </mat-error>
+            <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.hasError('minlength')">
+              Mínimo 3 caracteres
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-error *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')">
+              Email obrigatório
+            </mat-error>
+            <mat-error *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">
+              Email inválido
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full">
+            <mat-label>Nova senha (opcional)</mat-label>
+            <input matInput type="password" formControlName="password" />
+            <mat-hint>Deixe vazio para não alterar</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="loading || form.invalid">
+            <mat-icon>save</mat-icon>
+            Salvar
+          </button>
+
+          <div class="saving" *ngIf="loading">
+            <mat-spinner diameter="18"></mat-spinner>
+            <span>Salvando...</span>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

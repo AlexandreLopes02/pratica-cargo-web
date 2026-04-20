@@ -1,0 +1,25 @@
+<h2>Relatórios</h2>
+
+<p *ngIf="loading">Carregando...</p>
+
+<div class="cards" *ngIf="!loading">
+  <mat-card class="card">
+    <div class="label">Empresas</div>
+    <div class="value">{{ totalEmpresas }}</div>
+  </mat-card>
+
+  <mat-card class="card">
+    <div class="label">Motoristas</div>
+    <div class="value">{{ totalMotoristas }}</div>
+  </mat-card>
+
+  <mat-card class="card">
+    <div class="label">Serviços / OS</div>
+    <div class="value">{{ totalServicos }}</div>
+  </mat-card>
+</div>
+
+<button mat-raised-button color="primary" (click)="load()" [disabled]="loading">
+  <mat-icon>refresh</mat-icon>
+  Atualizar
+</button>

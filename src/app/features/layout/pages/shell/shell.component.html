@@ -1,0 +1,130 @@
+<mat-sidenav-container class="shell">
+  <!-- Sidebar -->
+  <mat-sidenav mode="side" opened class="sidebar">
+    <div class="brand">
+      <div class="title">Pratica Cargo</div>
+      <div class="subtitle">Desenvolvendo Inteligência</div>
+    </div>
+
+    <mat-nav-list class="menu">
+      <!-- Dashboard -->
+      <a
+        class="menu-item"
+        mat-list-item
+        routerLink="/app/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <mat-icon class="menu-icon">dashboard</mat-icon>
+        <span class="menu-text">Dashboard</span>
+      </a>
+
+      <!-- CADASTROS (dropdown) -->
+      <a class="menu-item" mat-list-item (click)="toggleCadastros()">
+        <mat-icon class="menu-icon">assignment</mat-icon>
+        <span class="menu-text">Cadastros</span>
+        <span class="spacer"></span>
+        <mat-icon class="menu-icon">
+          {{ showCadastros ? 'expand_less' : 'expand_more' }}
+        </mat-icon>
+      </a>
+
+      <div *ngIf="showCadastros" class="submenu">
+        <a
+          mat-list-item
+          routerLink="/app/cadastros/motoristas"
+          routerLinkActive="active"
+        >
+          <mat-icon class="submenu-icon">badge</mat-icon>
+          <span>Motoristas</span>
+        </a>
+
+        <a
+          mat-list-item
+          routerLink="/app/cadastros/empresas"
+          routerLinkActive="active"
+        >
+          <mat-icon class="submenu-icon">business</mat-icon>
+          <span>Empresas</span>
+        </a>
+
+        <a
+          mat-list-item
+          routerLink="/app/cadastros/servicos"
+          routerLinkActive="active"
+        >
+          <mat-icon class="submenu-icon">receipt_long</mat-icon>
+          <span>Serviços / OS</span>
+        </a>
+      </div>
+
+      <!-- CONSULTAS (dropdown) -->
+      <a class="menu-item" mat-list-item (click)="toggleConsultas()">
+        <mat-icon class="menu-icon">search</mat-icon>
+        <span class="menu-text">Consultas</span>
+        <span class="spacer"></span>
+        <mat-icon class="menu-icon">
+          {{ showConsultas ? 'expand_less' : 'expand_more' }}
+        </mat-icon>
+      </a>
+
+      <div *ngIf="showConsultas" class="submenu">
+        <a
+          mat-list-item
+          routerLink="/app/consultas/empresa"
+          routerLinkActive="active"
+        >
+          <mat-icon class="submenu-icon">domain</mat-icon>
+          <span>Empresa (CNPJ)</span>
+        </a>
+
+        <a
+          mat-list-item
+          routerLink="/app/consultas/motorista"
+          routerLinkActive="active"
+        >
+          <mat-icon class="submenu-icon">person_search</mat-icon>
+          <span>Motorista (CPF)</span>
+        </a>
+      </div>
+
+      <!-- Outras páginas -->
+      <a
+        class="menu-item"
+        mat-list-item
+        routerLink="/app/relatorios"
+        routerLinkActive="active"
+      >
+        <mat-icon class="menu-icon">bar_chart</mat-icon>
+        <span class="menu-text">Relatórios</span>
+      </a>
+
+      <a
+        class="menu-item"
+        mat-list-item
+        routerLink="/app/configuracoes"
+        routerLinkActive="active"
+      >
+        <mat-icon class="menu-icon">settings</mat-icon>
+        <span class="menu-text">Configurações</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Conteúdo -->
+  <mat-sidenav-content class="main">
+    <mat-toolbar class="topbar">
+      <span class="topbar-title">Pratica Cargo</span>
+      <span class="spacer"></span>
+
+      <button mat-button class="btn-logout" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Sair
+      </button>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

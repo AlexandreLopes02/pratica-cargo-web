@@ -1,0 +1,155 @@
+:host {
+  display: block;
+}
+
+/* Card padrão */
+.card {
+  width: 100%;
+  border-radius: 14px;
+}
+
+:host ::ng-deep .mat-mdc-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Cabeçalho do bloco */
+.block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 2px;
+}
+
+.block-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.block-ic {
+  opacity: 0.85;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 2px;
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 12px 0;
+}
+
+/* Tabela */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+:host ::ng-deep table.mat-mdc-table {
+  width: 100% !important;
+  background: #fff;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Cabeçalho */
+:host ::ng-deep .mat-mdc-header-cell {
+  font-weight: 800;
+  opacity: 0.75;
+  white-space: nowrap;
+  padding: 14px 16px !important;
+}
+
+/* Células */
+:host ::ng-deep .mat-mdc-cell {
+  white-space: nowrap;
+  padding: 16px 16px !important;
+  font-size: 14px;
+}
+
+/* Linhas com mais respiro */
+:host ::ng-deep .mat-mdc-row {
+  height: 58px;
+}
+
+:host ::ng-deep .mat-mdc-row:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Alinhamentos */
+.right {
+  text-align: right;
+}
+
+.actions-col {
+  min-width: 120px;
+}
+
+/* Conteúdos */
+.cell-main {
+  font-weight: 700;
+}
+
+.muted {
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.weight {
+  font-weight: 800;
+}
+
+/* Pill de tipo */
+.tipo-pill {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  background: rgba(25, 118, 210, 0.12);
+  border: 1px solid rgba(25, 118, 210, 0.18);
+}
+
+/* Botões da coluna ações */
+:host ::ng-deep .mat-mdc-icon-button {
+  border-radius: 10px;
+}
+
+:host ::ng-deep .mat-mdc-icon-button:hover {
+  background: rgba(17, 24, 39, 0.06);
+}
+
+/* ========================= */
+/* RESPONSIVIDADE */
+/* ========================= */
+
+/* telas médias */
+@media (max-width: 1400px) {
+  :host ::ng-deep .mat-mdc-header-cell,
+  :host ::ng-deep .mat-mdc-cell {
+    padding: 12px 14px !important;
+    font-size: 13px;
+  }
+
+  :host ::ng-deep .mat-mdc-row {
+    height: 52px;
+  }
+}
+
+/* telas pequenas: força scroll horizontal */
+@media (max-width: 900px) {
+  :host ::ng-deep table.mat-mdc-table {
+    min-width: 900px;
+  }
+}

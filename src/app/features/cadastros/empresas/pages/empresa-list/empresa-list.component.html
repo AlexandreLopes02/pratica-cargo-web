@@ -1,0 +1,82 @@
+<div class="page">
+  <div class="page-head">
+    <div class="titles">
+      <div class="crumb">Cadastros / Empresas</div>
+      <h1>Empresas</h1>
+    </div>
+
+    <button mat-raised-button color="primary" class="btn-primary" (click)="novo()">
+      <mat-icon>add</mat-icon>
+      Nova Empresa
+    </button>
+  </div>
+
+  <mat-card class="card">
+    <mat-card-content>
+      <!-- Loading -->
+      <div class="state" *ngIf="loading">
+        <mat-spinner diameter="28"></mat-spinner>
+        <span>Carregando empresas...</span>
+      </div>
+
+      <!-- Tabela -->
+      <div *ngIf="!loading && empresas.length > 0" class="table-wrap">
+        <table mat-table [dataSource]="empresas" class="mat-elevation-z0 table">
+          <!-- Nome -->
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let e">{{ e.nome }}</td>
+          </ng-container>
+
+          <!-- CNPJ -->
+          <ng-container matColumnDef="cnpj">
+            <th mat-header-cell *matHeaderCellDef>CNPJ</th>
+            <td mat-cell *matCellDef="let e">{{ e.cnpj }}</td>
+          </ng-container>
+
+          <!-- Ações -->
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef class="col-actions">Ações</th>
+            <td mat-cell *matCellDef="let e" class="col-actions">
+              <button
+                mat-icon-button
+                class="icon-btn"
+                matTooltip="Editar"
+                (click)="editar(e.id!)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button
+                mat-icon-button
+                class="icon-btn danger"
+                matTooltip="Excluir"
+                (click)="excluir(e.id!)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="['nome','cnpj','acoes']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['nome','cnpj','acoes'];"></tr>
+        </table>
+      </div>
+
+      <!-- Estado vazio -->
+      <div *ngIf="!loading && empresas.length === 0" class="empty">
+        <mat-icon>domain_disabled</mat-icon>
+
+        <div class="empty-text">
+          <strong>Nenhuma empresa cadastrada</strong>
+          <span>Cadastre uma empresa para aparecer na listagem.</span>
+        </div>
+
+        <button mat-stroked-button color="primary" (click)="novo()">
+          <mat-icon>add</mat-icon>
+          Cadastrar Empresa
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
