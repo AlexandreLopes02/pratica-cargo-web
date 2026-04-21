@@ -15,12 +15,12 @@
     <form [formGroup]="form" (ngSubmit)="submit()" class="form">
 
       <div class="form-group">
-        <label for="name">Operador</label>
+        <label for="name">Usuário ou e-mail</label>
         <input
           id="name"
           type="text"
           formControlName="name"
-          placeholder="Digite seu usuário"
+          placeholder="Digite seu usuário ou e-mail"
         />
         <small class="error" *ngIf="hasError('name','required')">
           Usuário obrigatório
