@@ -1,156 +1,156 @@
-# Pratica Cargo — Sistema de Gestão
+# 🚛 CargoPRO Web
 
-**Angular 14 • .NET Web API • SQL Server • JWT**
+Frontend do sistema **CargoPRO**, desenvolvido para gerenciamento de motoristas, empresas e ordens de serviço.
 
-Sistema completo de treinamento para prática de **Angular 14** consumindo uma **API C# (.NET Web API)** com **SQL Server** e autenticação **JWT**, focado em boas práticas, arquitetura modular e experiência do usuário.
+Este projeto foi criado com **Angular 14** e tem como foco praticar a construção de uma aplicação web mais próxima de um cenário real, com autenticação, proteção de rotas, organização modular e consumo de API REST.
 
 ---
 
-## 🚀 Funcionalidades
+## 🎯 Objetivo do projeto
+
+O **CargoPRO Web** foi desenvolvido como projeto prático para consolidar conhecimentos em:
+
+* Angular
+* TypeScript
+* Consumo de APIs REST
+* Organização por módulos e features
+* Autenticação com JWT
+* Reactive Forms
+* Angular Material
+* Boas práticas de experiência do usuário
+
+---
+
+## ⚙️ Funcionalidades
 
 ### 🔐 Autenticação
 
-* Cadastro de usuários (nome, email, senha)
-* Login com **JWT**
-* **Auth Guard** para proteção de rotas
-* **HTTP Interceptor** para envio automático do token
+* Cadastro de usuários
+* Login com autenticação JWT
+* Proteção de rotas com Auth Guard
+* Envio automático do token nas requisições via HTTP Interceptor
 
-### 🗂️ Cadastros (CRUD)
+### 📋 Cadastros
 
-* **Motoristas** (nome, CPF)
-* **Empresas** (nome, CNPJ)
-* **Serviços / Ordens de Serviço**
+* Cadastro de motoristas
+* Cadastro de empresas
+* Cadastro de ordens de serviço
+* Relacionamento entre motorista e empresa
 
-  * Relacionamento entre empresa e motorista por ID
-  * Validação de existência antes do cadastro
-  * Expansão de dados relacionados nas consultas
+### 🔎 Consultas
 
-### 🔎 Consultas Avançadas
-
-* Por **CNPJ**: empresa + ordens de serviço + motorista
-* Por **CPF**: motorista + ordens de serviço + empresa
+* Consulta por CPF
+* Consulta por CNPJ
+* Exibição de dados relacionados
 
 ### 📊 Dashboard
 
-* Contadores de motoristas
-* Contadores de empresas
-* Contadores de serviços
+* Total de motoristas cadastrados
+* Total de empresas cadastradas
+* Total de serviços cadastrados
 
-### 🎨 UX & Qualidade
+### 🎨 Experiência do usuário
 
-* Máscaras de **CPF/CNPJ**
-* Confirmação de ações com **MatDialog**
-* **Toasts** de feedback (sucesso/erro)
-* Indicadores de **loading**
+* Máscaras de CPF e CNPJ
+* Confirmação de ações
+* Feedback visual com mensagens de sucesso e erro
+* Indicadores de carregamento
+* Interface construída com Angular Material
 
 ---
 
-## 📦 Tecnologias Utilizadas
-
-### Front-end
+## 🛠️ Tecnologias utilizadas
 
 * Angular 14
+* TypeScript
 * Angular Material
-* Ngx-mask
-* HTML5 / SCSS
 * RxJS
-
-### Back-end
-
-* C# .NET Web API
-* Entity Framework Core
-* SQL Server
-* JWT (JSON Web Tokens)
+* HTML5
+* SCSS
+* ngx-mask
 
 ---
 
-## 🔧 Como Executar o Projeto
+## 📂 Estrutura do projeto
 
-### 📌 Back-end (API)
-
-1. Instale o **.NET SDK**
-2. Configure o `appsettings.json` com sua conexão do **SQL Server**
-3. Execute as migrations:
-
-   ```bash
-   dotnet ef database update
-   ```
-4. Inicie a API:
-
-   ```bash
-   dotnet run
-   ```
-5. A API estará disponível em:
-
-   ```
-   https://localhost:<porta>/api
-   ```
-
-### 📌 Front-end (Angular)
-
-1. Instale as dependências:
-
-   ```bash
-   npm install
-   ```
-2. Inicie a aplicação:
-
-   ```bash
-   npm start
-   ```
-3. Acesse:
-
-   ```
-   http://localhost:4200
-   ```
-
----
-
-## 📁 Estrutura do Projeto
-
-```
-pratica-cargo/
-├─ angular/                 # Front-end Angular 14
-│  └─ src/app/
-│     ├─ core/              # Serviços centrais, guards, interceptors
-│     ├─ shared/            # Componentes e utilitários reutilizáveis
-│     └─ features/          # Módulos por domínio
-│        ├─ auth/
-│        ├─ layout/
-│        ├─ cadastros/
-│        ├─ consultas/
-│        └─ dashboard/
-├─ api/                     # Back-end .NET Web API
-│  ├─ Controllers/
-│  ├─ Data/
-│  ├─ Models/
-│  └─ appsettings.json
-├─ db/                      # Migrations e scripts de banco
-└─ README.md
+```bash
+src/
+ ├─ app/
+ │   ├─ core/        # serviços centrais, guards e interceptors
+ │   ├─ shared/      # componentes e utilitários reutilizáveis
+ │   └─ features/    # módulos por funcionalidade
 ```
 
 ---
 
-## 💡 Boas Práticas Aplicadas
+## ▶️ Como executar o projeto
 
-* Arquitetura modular por **feature**
-* Separação de responsabilidades (components x services)
-* **Reactive Forms** com validações
-* **JWT Interceptor** e **Auth Guard**
-* Tratamento centralizado de erros (front e back)
-* Máscaras de entrada para dados sensíveis
-* Feedback visual e confirmação de ações
+### 🔧 Pré-requisitos
 
----
+Certifique-se de ter instalado:
 
-## 📌 Próximos Passos / Melhorias
-
-* Hash seguro de senha no back-end
-* Perfis de usuário e controle de permissões
-* Logs e auditoria
-* Relatórios exportáveis (PDF / Excel)
-* Testes unitários e de integração
+* Node.js
+* Angular CLI
 
 ---
 
-📘 **Projeto desenvolvido com foco educacional e preparo para projetos reais em Angular e .NET.**
+### 📦 Instalação
+
+```bash
+npm install
+```
+
+---
+
+### 🚀 Executar aplicação
+
+```bash
+npm start
+```
+
+A aplicação ficará disponível em:
+
+👉 http://localhost:4200
+
+---
+
+## 🔗 Integração com back-end
+
+Este repositório contém apenas o frontend da aplicação.
+
+O projeto foi desenvolvido para consumir uma API separada responsável por autenticação, regras de negócio e persistência dos dados.
+
+### 📌 Repositório da API
+
+https://github.com/AlexandreLopes02/pratica-cargo-api
+
+---
+
+## ✅ Boas práticas aplicadas
+
+* Organização modular por feature
+* Separação entre componentes, serviços e camadas reutilizáveis
+* Uso de Reactive Forms com validações
+* Proteção de rotas com Auth Guard
+* HTTP Interceptor para autenticação
+* Melhorias de usabilidade com feedback visual
+* Estrutura pensada para evolução do projeto
+
+---
+
+## 🔮 Melhorias futuras
+
+* Testes unitários
+* Tratamento global de erros
+* Paginação e filtros
+* Controle de perfis e permissões
+* Deploy da aplicação
+
+---
+
+## 👨‍💻 Autor
+
+**Alexandre Lopes de Lima**
+
+* 💼 LinkedIn: https://www.linkedin.com/in/lopesalexandre02
+* 💻 GitHub: https://github.com/AlexandreLopes02
